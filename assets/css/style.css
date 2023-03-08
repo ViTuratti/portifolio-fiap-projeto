@@ -44,7 +44,7 @@ span{
 }
 
 .button{
-    background: linear-gradient(90deg,#ED213A, #93291E);
+    background: linear-gradient(90deg,#C21B05,#BC7191);
     padding: 1rem 3rem;
     border-radius: 7px;
     color: #FFF;
@@ -57,16 +57,15 @@ img.avatar{
     width: 40rem;
 }
 
-.section-presentation{
-    background-color: rgb(97, 94, 94); 
+.section-presentation{ 
     display: flex;
     color: var(--text-secundary);
     font-size: 2rem;
 }
 
 .section-presentation p{
-    padding-left: 5rem;
-    padding-right: 5rem;
+    padding-left: 10rem;
+    padding-right: 10rem;
     text-align: center;
     
 }
