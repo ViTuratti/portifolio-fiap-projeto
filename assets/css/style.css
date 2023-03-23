@@ -172,11 +172,13 @@ img.avatar{
     opacity: 0;
     transition: opacity, bottom 1.5s;
     align-items: flex-start;
-    font-size: 14.5px;
+    font-size: 15px;
 }
 
 
 #section-projects li:hover .card-info{
     opacity: 1;
-    bottom: 20%;
+    bottom: 40%;
+    padding-left: 30%;
+    padding-right: 20%;
 }
