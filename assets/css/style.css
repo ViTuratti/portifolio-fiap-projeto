@@ -19,6 +19,7 @@ html{
 body{
     font-family: var(--font-default);
     color: var(--text-primary);
+    font-size: 2rem;
 }
 
 header{
@@ -84,30 +85,121 @@ header::before{
     }
 }
 
+.text-focus-in {
+	-webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+	        animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
 
+ @-webkit-keyframes text-focus-in {
+    0% {
+      -webkit-filter: blur(12px);
+              filter: blur(12px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-filter: blur(0px);
+              filter: blur(0px);
+      opacity: 1;
+    }
+  }
+  @keyframes text-focus-in {
+    0% {
+      -webkit-filter: blur(12px);
+              filter: blur(12px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-filter: blur(0px);
+              filter: blur(0px);
+      opacity: 1;
+    }
+  }
+  
 
 h1{
-    font-size: 5rem;
-    font-weight: 900;
-    font-family: var(--font-heading);
-    animation: tracking-in-expand 3s;
+    animation: text-focus-in 2s;
 }
 
 span{
-    font-size: 4rem;
-    animation: tracking-in-expand 3s;
+    animation: text-focus-in 2s;
 }
 
-.button{
+h1, h2, h3, h4 {
+    font-weight: 900;
+    font-family: var(--font-heading)
+}
+
+h1{font-size: 5rem;}
+h2{font-size: 4rem;}
+h3{font-size: 3rem;}
+h4{font-size: 2rem;}
+p {font-size: 1.8rem;}
+span {
+    font-size: 4rem;
+}
+
+
+
+.button {
+    --glow-color: rgb(248, 117, 117);
+    --glow-spread-color: rgba(255, 58, 58, 0.781);
+    --enhanced-glow-color: rgb(255, 174, 174);
+    --btn-color: rgb(136, 61, 61);
+    border: .25em solid var(--glow-color);
+    padding: 1em 3em;
+    color: var(--glow-color);
+    font-size: 15px;
+    font-weight: bold;
+    background-color: var(--btn-color);
+    border-radius: 1em;
+    outline: none;
+    box-shadow: 0 0 1em .25em var(--glow-color),
+           0 0 4em 1em var(--glow-spread-color),
+           inset 0 0 .75em .25em var(--glow-color);
+    text-shadow: 0 0 .5em var(--glow-color);
+    position: relative;
+    transition: all 0.3s;
+   }
+   
+.button::after {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    top: 120%;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--glow-spread-color);
+    filter: blur(2em);
+    opacity: .7;
+    transform: perspective(1.5em) rotateX(35deg) scale(1, .6);
+   }
+   
+.button:hover {
+    color: var(--btn-color);
+    background-color: var(--glow-color);
+    box-shadow: 0 0 1em .25em var(--glow-color),
+           0 0 4em 2em var(--glow-spread-color),
+           inset 0 0 .75em .25em var(--glow-color);
+   }
+   
+.button:active {
+    box-shadow: 0 0 0.6em .25em var(--glow-color),
+           0 0 2.5em 2em var(--glow-spread-color),
+           inset 0 0 .5em .25em var(--glow-color);
+   }
+
+.button2{
     background: linear-gradient(90deg,#C21B05,#BC7191);
     padding: 1rem 3rem;
     border-radius: 7px;
     color: #FFF;
     font-size: 2rem;
     text-decoration: none;
+    text-align: center;
 }
 
-.button:hover{
+.button2:hover{
     transform: scale(1.05);
     box-shadow: 3px 3px 5px #C21B05;
 }
@@ -170,15 +262,54 @@ img.avatar{
     position: absolute;
     bottom: 0;
     opacity: 0;
-    transition: opacity, bottom 1.5s;
-    align-items: flex-start;
-    font-size: 15px;
+    transition: opacity .5s, bottom .5s;
+    padding: 2rem;
+    gap: 1rem;
 }
 
+.card-info h4{
+    color: #BC7191;
+}
 
 #section-projects li:hover .card-info{
     opacity: 1;
-    bottom: 40%;
-    padding-left: 30%;
-    padding-right: 20%;
+    bottom: 20%;
+}
+
+#section-projects li:hover .card-image img{
+    opacity: .4;
+}
+
+#section-budget{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(../imagens/csbudget2.png);
+    background-size: cover;
+}
+
+#section-budget form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: start;
+    column-gap: 1rem;
+    row-gap: 1rem;
+    background-color: #8C8C8C99;
+    backdrop-filter: blur(1px);
+    border-radius: 10px;
+    width: 80%;
+    padding: 2rem;
+}
+
+#section-budget form h4{
+    position: absolute;
+    top: -15%;
+    background-color: #C21B05;
+    padding: .3rem 2rem;
+    border-radius: 5px;
+}
+
+#section-budget form output{
+    grid-column: 2;
 }
